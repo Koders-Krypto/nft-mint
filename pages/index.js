@@ -46,22 +46,22 @@ export default function Home() {
         const provider = new ethers.providers.Web3Provider(connection);
         const network = await provider.getNetwork();
         setChainId(network.chainId);
-        if (chainId != 3) {
-          window.ethereum.request({
-            method: "wallet_addEthereumChain",
-            params: [{
-              chainId: 'ox' + serialize(3),
-              rpcUrls: ["https://ropsten.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"],
-              chainName: "Ropsten Test Network",
-              nativeCurrency: {
-                name: "ETHER",
-                symbol: "ETH",
-                decimals: 18
-              },
-              blockExplorerUrls: ["https://polygonscan.com/"]
-            }]
-          });
-        }
+        // if (chainId != 3) {
+        //   window.ethereum.request({
+        //     method: "wallet_addEthereumChain",
+        //     params: [{
+        //       chainId: 'ox' + serialize(3),
+        //       rpcUrls: ["https://ropsten.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"],
+        //       chainName: "Ropsten Test Network",
+        //       nativeCurrency: {
+        //         name: "ETHER",
+        //         symbol: "ETH",
+        //         decimals: 18
+        //       },
+        //       blockExplorerUrls: ["https://polygonscan.com/"]
+        //     }]
+        //   });
+        // }
         const signer = provider.getSigner();
         const address = await signer.getAddress();
         const phnContract = new ethers.Contract(phnAddress, PHN.abi, signer);
