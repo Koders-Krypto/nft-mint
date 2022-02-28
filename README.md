@@ -13,3 +13,10 @@ npx hardhat node
 node scripts/sample-script.js
 npx hardhat help
 ```
+
+#to run project
+$ npm i -f
+$ npm run dev
+
+#to buid project
+$ npm run build 
