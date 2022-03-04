@@ -7,8 +7,8 @@ import { phnAddress } from "../config";
 import PHN from "../artifacts/contracts/PHN.sol/PlaceHolder.json";
 import Nav from "./Nav";
 import Logo from "../public/logo.png";
+import { Footer } from "./Footer";
 
-console.log(Logo.src);
 
 export default function Home() {
   const [active, setActive] = useState(false);
@@ -47,6 +47,7 @@ export default function Home() {
       const tokenId = await contract.tokenOfOwnerByIndex(account, i);
       tokenIds.push(tokenId.toString());
     }
+    console.log(tokenIds);
     setNfts(tokenIds);
   }
 
@@ -134,83 +135,108 @@ export default function Home() {
         <Head>
           <Nav />
         </Head>
+        <div className="grid grid-rows-1 grid-flow-col gap-2">
+          <div className="user-list w-full max-w-md mx-auto bg-white rounded-xl shadow-xl flex flex-col py-20 p-14 pt-10 pb-0">
+            {" "}
+            <div className="flex flex-col items-center justify-center">
+              <div className="user-list w-full max-w-lg mx-auto bg-white rounded-xl flex flex-col">
+                <div className="flex flex-col items-center justify-cente w-30 h-30 mb-10">
+                  <img
+                    className="rounded-full"
+                    src={Logo.src}
+                    alt="logo"
+                    height="150"
+                    width="150"
+                  />
+                </div>
+                <main className="flex items-center justify-center">
+                  <div className="flex flex-row border  rounded-lg border-gray-400 relative border-none mt-5">
+                    <button
+                      className="font-semibold bg-blue-600 hover:bg-blue-800 text-white border-gray-400 h-10 w-10 flex rounded-full outline-none focus:outline-none cursor-pointer"
+                      onClick={decNum}>
+                      <span className="m-auto">-</span>
+                    </button>
+                    <input
+                      type="hidden"
+                      className="md:p-2 p-1 text-xs md:text-base border-gray-400 focus:outline-none text-center"
+                      readOnly
+                      name="custom-input-number"
+                    />
 
-        <div className="flex flex-col items-center justify-center">
-          <div className="user-list w-full max-w-lg mx-auto bg-white rounded-xl shadow-xl flex flex-col py-4 p-16">
-            <div className="flex flex-col items-center justify-cente w-30 h-30 mb-10">
-              <img
-                className="rounded-full"
-                src={Logo.src}
-                alt="logo"
-                height="150"
-                width="150"
-              />
-            </div>
-            <main className="flex items-center justify-center">
-              <div className="flex flex-row border h-10 w-56 rounded-lg border-gray-400 relative border-none mt-1">
-                <button
-                  className="font-semibold bg-blue-600 hover:bg-blue-800 text-white border-gray-400 h-10 w-10 flex rounded-full outline-none focus:outline-none cursor-pointer"
-                  onClick={decNum}>
-                  <span className="m-auto">-</span>
-                </button>
-                <input
-                  type="hidden"
-                  className="md:p-2 p-1 text-xs md:text-base border-gray-400 focus:outline-none text-center"
-                  readOnly
-                  name="custom-input-number"
-                />
+                    <input
+                      className="bg-white w-10 h-10 text-xs md:text-base flex items-center justify-center cursor-default text-center outline-none"
+                      type="text"
+                      value={num}
+                      onChange={handleChange}
+                      disabled
+                    />
+                    <button
+                      className="font-semibold bg-blue-600 hover:bg-blue-800 text-white border-gray-400 h-10 w-10 flex rounded-full outline-none focus:outline-none cursor-pointer"
+                      onClick={incNum}>
+                      <span className="m-auto">+</span>
+                    </button>
+                    <div className="absolute flex flex-col p-2 w-32 md:w-full mt-6 md:mt-8 items-start justify-center"></div>
+                    {walletConnect()}
+                  </div>
 
-                <input
-                  className="bg-white w-10 text-xs md:text-base flex items-center justify-center cursor-default text-center outline-none"
-                  type="text"
-                  value={num}
-                  onChange={handleChange}
-                  disabled
-                />
-                <button
-                  className="font-semibold bg-blue-600 hover:bg-blue-800 text-white border-gray-400 h-10 w-10 flex rounded-full outline-none focus:outline-none cursor-pointer"
-                  onClick={incNum}>
-                  <span className="m-auto">+</span>
-                </button>
-                <div className="absolute flex flex-col p-2 w-32 md:w-full mt-6 md:mt-8 items-start justify-center"></div>
-                {walletConnect()}
-              </div>
-
-              {/* <button className="bg-blue-500 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded">MINT</button> */}
-            </main>
-            <div class="py-0">
-              <div>
-                <ul className="flex flex-row items-center justify-center divide-x mt-4 mb-4">
-                  <li className="pl-4 pr-4">
-                    <p class="text-base leading-6 dark:text-gray-600 text-gray-900 mt-4 lg:w-full md:w-9/12 w-full font-bold">
-                      1000
-                    </p>
-                    <h3 class="text-sm text-grey">Total Supply</h3>
-                  </li>
-                  <li className="pl-4 pr-4">
-                    <p class="text-base leading-6 dark:text-gray-600 text-gray-900 mt-4 lg:w-full md:w-9/12 w-full font-bold">
-                      2000
-                    </p>
-                    <h3 class="text-sm text-grey">Total Minted</h3>
-                  </li>
-                  <li className="pl-4 pr-4">
-                    <p class="text-base leading-6 dark:text-gray-600 text-gray-900 mt-4 lg:w-full md:w-9/12 w-full font-bold">
-                      10FTM
-                    </p>
-                    <h3 class="text-sm text-grey">Mint Price</h3>
-                  </li>
-                </ul>
+                  {/* <button className="bg-blue-500 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded">MINT</button> */}
+                </main>
+                <div className="py-0">
+                  <div>
+                    <ul className="flex flex-row items-center justify-center divide-x mt-4 mb-0">
+                      <li className="pl-4 pr-4">
+                        <p className="text-base leading-6 dark:text-gray-600 text-gray-900 mt-4 lg:w-full md:w-9/12 w-full font-bold">
+                          1000
+                        </p>
+                        <h3 className="text-sm text-grey">Total Supply</h3>
+                      </li>
+                      <li className="pl-4 pr-4">
+                        <p className="text-base leading-6 dark:text-gray-600 text-gray-900 mt-4 lg:w-full md:w-9/12 w-full font-bold">
+                          2000
+                        </p>
+                        <h3 className="text-sm text-grey">Total Minted</h3>
+                      </li>
+                      <li className="pl-4 pr-4">
+                        <p className="text-base leading-6 dark:text-gray-600 text-gray-900 mt-4 lg:w-full md:w-9/12 w-full font-bold">
+                          10FTM
+                        </p>
+                        <h3 className="text-sm text-grey">Mint Price</h3>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+
+          <div></div>
+          <div>
+            {" "}
+            <div className="flex flex-col items-center justify-center">
+              <div className="user-list w-full max-w-md mx-auto bg-white rounded-xl shadow-xl flex flex-col">
+                <div className="flex flex-col items-center justify-cente w-30 h-30 rounded-xl">
+                  <img
+                    className="rounded-xl"
+                    src="https://www.rookiebears.com/img/bear.gif"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {nfts.length > 0 ? (
           <div className="flex flex-col items-center justify-center mt-4">
-            <div className="user-list w-full max-w-lg mx-auto bg-white rounded-xl shadow-xl flex flex-col py-4 p-16">
+            <div className="user-list w-full mx-auto bg-white rounded-xl shadow-xl flex flex-col py-4 p-12">
+              <div className="text-xl font-bold mb-2 mt-2 text-blue-600">
+                <h4>MY NFT's</h4>
+              </div>
               <main>
                 <ul className="grid grid-cols-4 gap-6">
                   {nfts.map((nft) => (
                     <div
                       key={nft}
-                      className="bg-gray-100 p-4 h-24 lg:h-28 flex justify-center items-center text-lg">
+                      className="bg-gray-100 p-4  flex justify-center items-center text-lg">
                       <img
                         src={
                           "http://placehold.jp/3d4070/ffffff/150x150.png?text=" +
@@ -220,12 +246,14 @@ export default function Home() {
                     </div>
                   ))}
                 </ul>
-
                 {/* <button className="bg-blue-500 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded">MINT</button> */}
               </main>
             </div>
           </div>
-        </div>
+        ) : (
+          <div></div>
+        )}
+        <Footer />
       </div>
     </>
   );
