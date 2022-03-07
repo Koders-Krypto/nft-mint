@@ -17,6 +17,8 @@ export default function Home() {
   const [nfts, setNfts] = useState([]);
   const [contract, setContract] = useState(null);
   const [chainId, setChainId] = useState(null);
+  const [wrongNetwork, setWrongNetwork] = useState(false);
+  const [error, setError] = useState(null);
   let [num, setNum] = useState(1);
   let incNum = () => {
     if (num < 10) {
@@ -41,14 +43,53 @@ export default function Home() {
   }, [loading]);
 
   async function loadMyNfts() {
-    const tokensOwned = await contract.balanceOf(account);
-    const tokenIds = [];
-    for (let i = 0; i < tokensOwned; i++) {
-      const tokenId = await contract.tokenOfOwnerByIndex(account, i);
-      tokenIds.push(tokenId.toString());
+    try {
+      const tokensOwned = await contract.balanceOf(account);
+      const tokenIds = [];
+      for (let i = 0; i < tokensOwned; i++) {
+        const tokenId = await contract.tokenOfOwnerByIndex(account, i);
+        tokenIds.push(tokenId.toString());
+      }
+      setNfts(tokenIds);
+    } catch (e) {
+      setError(e);
     }
-    console.log(tokenIds);
-    setNfts(tokenIds);
+
+  }
+
+  async function switchNetwork() {
+    try {
+      window.ethereum.request({
+        method: 'wallet_switchEthereumChain',
+        params: [{ chainId: `0x${Number(3).toString(16)}` }],
+      });
+      await connect();
+    } catch (switchError) {
+      if (switchError.code === 4902) {
+        try {
+          window.ethereum.request({
+            method: "wallet_addEthereumChain",
+            params: [{
+              chainId: `0x${Number(3).toString(16)}`,
+              rpcUrls: ["https://ropsten.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"],
+              chainName: "Ropsten Test Network",
+              nativeCurrency: {
+                name: "ETHER",
+                symbol: "ETH",
+                decimals: 18
+              },
+              blockExplorerUrls: ["https://ropsten.etherscan.io"]
+            }]
+          });
+        }
+        catch (addError) {
+          setError(addError);
+        }
+      } else {
+        setError(switchError);
+      }
+    }
+
   }
 
   async function connect() {
@@ -59,22 +100,11 @@ export default function Home() {
         const provider = new ethers.providers.Web3Provider(connection);
         const network = await provider.getNetwork();
         setChainId(network.chainId);
-        // if (chainId != 3) {
-        //   window.ethereum.request({
-        //     method: "wallet_addEthereumChain",
-        //     params: [{
-        //       chainId: 'ox' + serialize(3),
-        //       rpcUrls: ["https://ropsten.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"],
-        //       chainName: "Ropsten Test Network",
-        //       nativeCurrency: {
-        //         name: "ETHER",
-        //         symbol: "ETH",
-        //         decimals: 18
-        //       },
-        //       blockExplorerUrls: ["https://polygonscan.com/"]
-        //     }]
-        //   });
-        // }
+        if (network.chainId != 3) {
+          setWrongNetwork(true);
+        } else {
+          setWrongNetwork(false);
+        }
         const signer = provider.getSigner();
         const address = await signer.getAddress();
         const phnContract = new ethers.Contract(phnAddress, PHN.abi, signer);
@@ -84,11 +114,11 @@ export default function Home() {
         setLoading(false);
         // loadMyNfts();
       } catch (error) {
-        console.log(error);
+        setError(error);
         setLoading(false);
       }
     } else {
-      alert("no metamask wallets found!");
+      setError("no metamask wallets found!");
     }
   }
 
@@ -99,7 +129,7 @@ export default function Home() {
         await performMint.wait();
         loadMyNfts();
       } catch (e) {
-        console.log(e);
+        setError(e);
       }
     }
 
@@ -116,7 +146,7 @@ export default function Home() {
             <button
               onClick={connect}
               className="py-2 mb-4 text-lg font-bold text-white rounded-lg w-24 bg-blue-600 hover:bg-blue-800 ml-2">
-              Connect to MetaMask
+              Connect
             </button>
           )
         ) : (
@@ -132,9 +162,8 @@ export default function Home() {
   return (
     <>
       <div className="flex flex-col items-center justify-center p-16 min-h-screen bg-slate-200">
-        <Head>
-          <Nav />
-        </Head>
+        <Head />
+        <Nav callConnect={connect} loading={loading} active={active} address={account} switchNetwork={switchNetwork} wrongNetwork={wrongNetwork} />
         <div className="grid grid-rows-1 grid-flow-col gap-2">
           <div className="user-list w-full max-w-md mx-auto bg-white rounded-xl shadow-xl flex flex-col py-20 p-14 pt-10 pb-0">
             {" "}
