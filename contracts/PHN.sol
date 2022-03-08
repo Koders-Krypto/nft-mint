@@ -13,27 +13,30 @@ contract PlaceHolder is ERC721, ERC721Enumerable, Ownable {
     Counters.Counter private _tokenIdCounter;
 
     struct Minter {
-       address addr;
-       uint token;
+        address addr;
+        uint256 token;
     }
 
-    mapping (uint => Minter) itemMinter;
+    mapping(uint256 => Minter) itemMinter;
 
     constructor() ERC721("PlaceHolder", "PHD") {}
 
-    function safeMint() public payable{
-        require(msg.value < mintPrice, "Insufficient ether");
-        _tokenIdCounter.increment();
-        uint256 tokenId = _tokenIdCounter.current();
-        _safeMint(msg.sender, tokenId);
+    function safeMint(uint256 count) public payable {
+        require(msg.value * count < mintPrice * count, "Insufficient ether");
+        for (uint256 i = 0; i < count; i++) {
+            _tokenIdCounter.increment();
+            uint256 tokenId = _tokenIdCounter.current();
+            _safeMint(msg.sender, tokenId);
+        }
     }
 
     // The following functions are overrides required by Solidity.
 
-    function _beforeTokenTransfer(address from, address to, uint256 tokenId)
-        internal
-        override(ERC721, ERC721Enumerable)
-    {
+    function _beforeTokenTransfer(
+        address from,
+        address to,
+        uint256 tokenId
+    ) internal override(ERC721, ERC721Enumerable) {
         super._beforeTokenTransfer(from, to, tokenId);
     }
 

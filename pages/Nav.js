@@ -20,23 +20,23 @@ export default function Nav(props) {
                 Switch Network
               </button>
             </li>
-          ):
-          props.active ? (
-            <li>
-              <a
-                className="mr-6  p-3 pl-5 pr-5 rounded-full transition-all text-blue-600 text-center text-lg font-semibold"
-                disable="true">
-                20 FTM
-              </a>
-              <a
-                className="mr-6 bg-blue-600 p-3 pl-10 pr-10 rounded-full transition-all hover:bg-blue-900 text-white text-center"
-                href="">
-                  {props.address.substring(0, 4) + "....." + props.address.substring(props.address.length - 4)}
-              </a>
-            </li>
-          ) : <li>
+          ) :
+            props.active ? (
+              <li>
+                <a
+                  className="mr-6  p-3 pl-5 pr-5 rounded-full transition-all text-blue-600 text-center text-lg font-semibold"
+                  disable="true">
+                  {parseFloat(props.balance).toFixed(4)} FTM
+                </a>
+                <a
+                  className="mr-6 bg-blue-600 p-3 pl-10 pr-10 rounded-full transition-all hover:bg-blue-900 text-white text-center"
+                  disable="true">
+                  {props.address.substring(0, 5) + "....." + props.address.substring(props.address.length - 4)}
+                </a>
+              </li>
+            ) : <li>
               <button
-                  onClick={props.callConnect}
+                onClick={props.callConnect}
                 className="mr-6 bg-blue-600 p-3 pl-10 pr-10 rounded-full transition-all hover:bg-blue-900 text-white text-center">
                 Connect
               </button>

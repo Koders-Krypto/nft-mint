@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
+import Web3 from "web3";
 import Web3Modal from "web3modal";
 import { BigNumber, ethers } from "ethers";
 import { phnAddress } from "../config";
@@ -19,7 +20,13 @@ export default function Home() {
   const [chainId, setChainId] = useState(null);
   const [wrongNetwork, setWrongNetwork] = useState(false);
   const [error, setError] = useState(null);
+  const [balance, setBalance] = useState(0);
   let [num, setNum] = useState(1);
+  const defaultNetwork = 3;
+
+
+
+
   let incNum = () => {
     if (num < 10) {
       setNum(Number(num) + 1);
@@ -57,20 +64,23 @@ export default function Home() {
 
   }
 
+
+
   async function switchNetwork() {
     try {
       window.ethereum.request({
         method: 'wallet_switchEthereumChain',
-        params: [{ chainId: `0x${Number(3).toString(16)}` }],
+        params: [{ chainId: `0x${Number(defaultNetwork).toString(16)}` }],
+      }).then(async () => {
+        await connect();
       });
-      await connect();
     } catch (switchError) {
       if (switchError.code === 4902) {
         try {
           window.ethereum.request({
             method: "wallet_addEthereumChain",
             params: [{
-              chainId: `0x${Number(3).toString(16)}`,
+              chainId: `0x${Number(defaultNetwork).toString(16)}`,
               rpcUrls: ["https://ropsten.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"],
               chainName: "Ropsten Test Network",
               nativeCurrency: {
@@ -80,7 +90,10 @@ export default function Home() {
               },
               blockExplorerUrls: ["https://ropsten.etherscan.io"]
             }]
+          }).then(async () => {
+            await connect();
           });
+
         }
         catch (addError) {
           setError(addError);
@@ -96,29 +109,51 @@ export default function Home() {
     if (window.ethereum) {
       try {
         const web3Modal = new Web3Modal();
-        const connection = await web3Modal.connect();
-        const provider = new ethers.providers.Web3Provider(connection);
+        const instance = await web3Modal.connect();
+        const provider = new ethers.providers.Web3Provider(instance);
+        const signer = provider.getSigner();
         const network = await provider.getNetwork();
         setChainId(network.chainId);
-        if (network.chainId != 3) {
+        if (network.chainId != defaultNetwork) {
           setWrongNetwork(true);
         } else {
           setWrongNetwork(false);
         }
-        const signer = provider.getSigner();
         const address = await signer.getAddress();
+        const balance = await signer.getBalance();
+
         const phnContract = new ethers.Contract(phnAddress, PHN.abi, signer);
         setContract(phnContract);
         setActive(true);
         setAccount(address);
         setLoading(false);
-        // loadMyNfts();
+
+        window.ethereum.on('chainChanged', function (networkId) {
+          if (networkId != defaultNetwork) {
+            setWrongNetwork(true);
+          }
+        })
+
+        window.ethereum.on('accountsChanged', async function (accounts) {
+          await connect();
+        });
+
+        try {
+          const bal = ethers.utils.formatEther(balance);
+          setBalance(bal);
+        } catch (be) {
+          console.log(be);
+        }
+
+
       } catch (error) {
         setError(error);
         setLoading(false);
       }
+
     } else {
       setError("no metamask wallets found!");
+      setLoading(false);
     }
   }
 
@@ -163,7 +198,7 @@ export default function Home() {
     <>
       <div className="flex flex-col items-center justify-center p-16 min-h-screen bg-slate-200">
         <Head />
-        <Nav callConnect={connect} loading={loading} active={active} address={account} switchNetwork={switchNetwork} wrongNetwork={wrongNetwork} />
+        <Nav callConnect={connect} loading={loading} active={active} address={account} switchNetwork={switchNetwork} wrongNetwork={wrongNetwork} balance={balance} />
         <div className="grid grid-rows-1 grid-flow-col gap-2">
           <div className="user-list w-full max-w-md mx-auto bg-white rounded-xl shadow-xl flex flex-col py-20 p-14 pt-10 pb-0">
             {" "}
