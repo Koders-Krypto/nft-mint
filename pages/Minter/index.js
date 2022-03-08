@@ -2,12 +2,12 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import Web3Modal from "web3modal";
 import { BigNumber, ethers } from "ethers";
-import { phnAddress } from "../config";
+import { phnAddress } from "../../config";
 
-import PHN from "../artifacts/contracts/PHN.sol/PlaceHolder.json";
-import Nav from "./Nav";
-import Logo from "../public/logo.png";
-import { Footer } from "./Footer";
+import PHN from "../../artifacts/contracts/PHN.sol/PlaceHolder.json";
+import Nav from "../Nav";
+import Logo from "../../public/logo.png";
+import { Footer } from "../Footer";
 
 
 export default function Home() {

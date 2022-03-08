@@ -3,9 +3,9 @@ export default function Nav(props) {
 
 
   return (
-    <nav className="flex justify-between items-center bg-slate-200 h-16 shadow-lg">
+    <nav className="flex justify-between items-center bg-slate-200 h-16 shadow-lg mb-20 w-full">
       <div className="ml-10">
-        <h1 className="cursor-pointer text-blue-600 font-extrabold text-2xl">
+        <h1 className="cursor-pointer text-blue-600 font-extrabold text-lg md:text-2xl">
           NFT MINTER
         </h1>
       </div>
@@ -24,7 +24,7 @@ export default function Nav(props) {
           props.active ? (
             <li>
               <a
-                className="mr-6  p-3 pl-5 pr-5 rounded-full transition-all text-blue-600 text-center text-lg font-semibold"
+                className="mr-6  p-3 pl-5 pr-5 rounded-full transition-all text-blue-600 text-center text-sm md:text-lg font-semibold"
                 disable="true">
                 20 FTM
               </a>
@@ -37,14 +37,14 @@ export default function Nav(props) {
           ) : <li>
               <button
                   onClick={props.callConnect}
-                className="mr-6 bg-blue-600 p-3 pl-10 pr-10 rounded-full transition-all hover:bg-blue-900 text-white text-center">
+                className="mr-0 md:mr-6 bg-blue-600 p-3 pl-10 pr-10 rounded-full transition-all hover:bg-blue-900 text-white text-center">
                 Connect
               </button>
             </li>
         ) : (
           <li>
             <a
-              className="mr-6 bg-blue-600 p-3 pl-10 pr-10 rounded-full transition-all hover:bg-blue-900 text-white text-center"
+              className="mr-0 md:mr-6 bg-blue-600 p-3 pl-10 pr-10 rounded-full transition-all hover:bg-blue-900 text-white text-center"
               href="">
               Loading...
             </a>
