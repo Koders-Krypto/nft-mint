@@ -3,9 +3,10 @@
 */
 
 require("@nomiclabs/hardhat-waffle");
+require('dotenv').config();
 const INFURA_PROJECT_ID = "337d4f8bfef54a519652b6b43b613a72";
 const fs = require("fs");
-const PRIVATE_KEY = fs.readFileSync('.secret').toString();
+const PRIVATE_KEY = process.env.office_privatekey;
 
 module.exports = {
   solidity: "0.8.4",

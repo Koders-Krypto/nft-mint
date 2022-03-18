@@ -2,15 +2,16 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import Web3Modal from "web3modal";
 import { BigNumber, ethers } from "ethers";
-import { phnAddress } from "../../config";
 
-import PHN from "../../artifacts/contracts/PHN.sol/PlaceHolder.json";
+import FantomBulls from "../../artifacts/contracts/FantomBulls.sol/FantomBulls.json";
 import Nav from "../Nav";
 import Logo from "../../public/logo.png";
 import { Footer } from "../Footer";
 
 
 export default function Home() {
+  var bullsAddress = '0x9f14fe1bde644e3aaed1e124fca21d9057956033';
+  const chain_id = 4002;
   const [active, setActive] = useState(false);
   const [account, setAccount] = useState("");
   const [loading, setLoading] = useState(true);
@@ -61,7 +62,7 @@ export default function Home() {
     try {
       window.ethereum.request({
         method: 'wallet_switchEthereumChain',
-        params: [{ chainId: `0x${Number(3).toString(16)}` }],
+        params: [{ chainId: `0x${Number(chain_id).toString(16)}` }],
       });
       await connect();
     } catch (switchError) {
@@ -70,7 +71,7 @@ export default function Home() {
           window.ethereum.request({
             method: "wallet_addEthereumChain",
             params: [{
-              chainId: `0x${Number(3).toString(16)}`,
+              chainId: `0x${Number(chain_id).toString(16)}`,
               rpcUrls: ["https://ropsten.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"],
               chainName: "Ropsten Test Network",
               nativeCurrency: {
@@ -100,15 +101,15 @@ export default function Home() {
         const provider = new ethers.providers.Web3Provider(connection);
         const network = await provider.getNetwork();
         setChainId(network.chainId);
-        if (network.chainId != 3) {
+        if (network.chainId != chain_id) {
           setWrongNetwork(true);
         } else {
           setWrongNetwork(false);
         }
         const signer = provider.getSigner();
         const address = await signer.getAddress();
-        const phnContract = new ethers.Contract(phnAddress, PHN.abi, signer);
-        setContract(phnContract);
+        const bullContract = new ethers.Contract(bullsAddress, FantomBulls.abi, signer);
+        setContract(bullContract);
         setActive(true);
         setAccount(address);
         setLoading(false);
@@ -125,7 +126,9 @@ export default function Home() {
   function walletConnect() {
     async function mint() {
       try {
-        const performMint = await contract.safeMint();
+        console.log(num);
+        const options = { value: ethers.utils.parseEther("1.0") }
+        const performMint = await contract.safeMint(num, options);
         await performMint.wait();
         loadMyNfts();
       } catch (e) {

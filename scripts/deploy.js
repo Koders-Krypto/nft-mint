@@ -1,10 +1,10 @@
 const hre = require("hardhat");
 
 async function main() {
-  const PlaceHolder = await hre.ethers.getContractFactory("PlaceHolder");
-  const placeHolder = await PlaceHolder.deploy();
-  await placeHolder.deployed();
-  console.log("PlaceHolder deployed to:", placeHolder.address);
+  const FantomBulls = await hre.ethers.getContractFactory("FantomBulls");
+  const fantomBulls = await FantomBulls.deploy();
+  await fantomBulls.deployed();
+  console.log("FantomBulls deployed to:", fantomBulls.address);
 }
 
 main()
