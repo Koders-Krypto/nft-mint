@@ -6,9 +6,9 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-contract PlaceHolder is ERC721, ERC721Enumerable, Ownable {
+contract FantomBulls is ERC721, ERC721Enumerable, Ownable {
     using Counters for Counters.Counter;
-    uint256 mintPrice = 0.00001 ether;
+    uint256 mintPrice = 10 ether;
 
     Counters.Counter private _tokenIdCounter;
 
@@ -19,10 +19,10 @@ contract PlaceHolder is ERC721, ERC721Enumerable, Ownable {
 
     mapping(uint256 => Minter) itemMinter;
 
-    constructor() ERC721("PlaceHolder", "PHD") {}
+    constructor() ERC721("FantomBulls", "BULL") {}
 
     function safeMint(uint256 count) public payable {
-        require(msg.value * count < mintPrice * count, "Insufficient ether");
+        require(msg.value * count < mintPrice * count, "Insufficient Fantom");
         for (uint256 i = 0; i < count; i++) {
             _tokenIdCounter.increment();
             uint256 tokenId = _tokenIdCounter.current();
