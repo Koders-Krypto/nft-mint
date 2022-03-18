@@ -9,20 +9,20 @@ export const Footer = () => {
 	<footer className="p-2 bg-slate-200 rounded-lg md:px-10 md:py-0">
 		<div className="flex items-center justify-center">
 			
-			<ul className="flex flex-wrap items-center mb-0 md:mb-2">
-				<li>
-					<a href="#" className="mr-4 text-md text-blue-600 hover:underline md:mr-6 "><i className="fa-brands fa-discord"></i> Discord</a>
+			<ul className="flex flex-wrap justify-center items-center mb-0 md:mb-2">
+				<li className='mb-4'>
+					<a href="#" className="mr-4 text-md text-blue-600 hover:underline md:mr-6 text-lg"><i className="fa-brands fa-discord"></i> Discord</a>
 				</li>
-				<li>
-					<a href="#" className="mr-4 text-md text-blue-600 hover:underline md:mr-6 "><i className="fa-brands fa-twitter"></i> Twitter
+				<li className='mb-4'>
+					<a href="#" className="mr-4 text-md text-blue-600 hover:underline md:mr-6 text-lg"><i className="fa-brands fa-twitter"></i> Twitter
 						</a>
 				</li>
-				<li>
+				<li className='mb-4'>
 					<a href="#"
-						className="mr-4 text-md text-blue-600 hover:underline md:mr-6 "><i className="fa-brands fa-medium"></i> Medium</a>
+						className="mr-4 text-md text-blue-600 hover:underline md:mr-6 text-lg"><i className="fa-brands fa-medium"></i> Medium</a>
 				</li>
-				<li>
-					<a href="#" className="text-md text-blue-600 hover:underline "><i className="fa-solid fa-envelope"></i> Contact</a>
+				<li className='mb-4'>
+					<a href="#" className="text-md text-blue-600 hover:underline text-lg"><i className="fa-solid fa-envelope"></i> Contact</a>
 				</li>
 			</ul>
 		</div>
