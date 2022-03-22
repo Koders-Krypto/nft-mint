@@ -10,14 +10,16 @@ import { Footer } from "../Footer";
 
 
 export default function Home() {
-  var bullsAddress = '0x9f14fe1bde644e3aaed1e124fca21d9057956033';
+  var bullsAddress = '0xD9705b9982d6300bC0BE825305da0c4656DaBf0e';
   const chain_id = 4002;
+  const mintPrice = "1";
   const [active, setActive] = useState(false);
   const [account, setAccount] = useState("");
   const [loading, setLoading] = useState(true);
   const [nfts, setNfts] = useState([]);
   const [contract, setContract] = useState(null);
   const [chainId, setChainId] = useState(null);
+  const [mintAmount, setMintAmount] = useState(10);
   const [wrongNetwork, setWrongNetwork] = useState(false);
   const [error, setError] = useState(null);
   let [num, setNum] = useState(1);
@@ -51,6 +53,7 @@ export default function Home() {
         const tokenId = await contract.tokenOfOwnerByIndex(account, i);
         tokenIds.push(tokenId.toString());
       }
+      console.log(tokenIds);
       setNfts(tokenIds);
     } catch (e) {
       setError(e);
@@ -127,11 +130,14 @@ export default function Home() {
     async function mint() {
       try {
         console.log(num);
-        const options = { value: ethers.utils.parseEther("1.0") }
-        const performMint = await contract.safeMint(num, options);
+        var amount = String(num * mintPrice);
+        console.log(amount);
+        const options = { value: ethers.utils.parseEther(amount) }
+        const performMint = await contract.mint(num, options);
         await performMint.wait();
         loadMyNfts();
       } catch (e) {
+        console.log(e);
         setError(e);
       }
     }
@@ -164,27 +170,25 @@ export default function Home() {
 
   return (
     <div className="pt-0 min-h-screen bg-slate-200">
-    <Head />
+      <Head />
       <div className="flex flex-col items-center min-h-screen bg-slate-200">
-        
         <Nav callConnect={connect} loading={loading} active={active} address={account} switchNetwork={switchNetwork} wrongNetwork={wrongNetwork} />
         <div className="grid grid-rows-1 md:grid-flow-col gap-2 mx-2 mt-20">
           <div className="user-list w-full max-w-md mx-auto bg-white rounded-xl shadow-xl flex justify-center items-center flex-col px-8 py-10">
             {" "}
             <div className="flex flex-col items-center justify-cente w-full h-auto px-20 mb-10 rounded-xl">
-                  <img
-                    className="rounded-full"
-                    src="https://www.rookiebears.com/img/bear.gif"
-                    alt=""
-                  />
-                </div>
+              <img
+                className="rounded-full"
+                src="https://www.rookiebears.com/img/bear.gif"
+                alt=""
+              />
+            </div>
             <div className="flex flex-col items-center justify-center">
               <div className="user-list w-full max-w-lg mx-auto bg-white rounded-xl flex flex-col">
-               <h1 className="font-extrabold text-2xl mb-1 text-center">
-               1 / 1000
-               </h1>
-               <h4 className="font-medium text-base text-center">1 Fantom Bull Costs 10 FTM</h4>
-              
+                <h1 className="font-extrabold text-2xl mb-1 text-center">
+                  1 / 1000
+                </h1>
+                <h4 className="font-medium text-base text-center">1 Fantom Bull Costs 10 FTM</h4>
                 <main className="flex items-center justify-center">
                   <div className="flex flex-row border  rounded-lg border-gray-400 relative border-none mt-5">
                     <button
@@ -198,7 +202,6 @@ export default function Home() {
                       readOnly
                       name="custom-input-number"
                     />
-
                     <input
                       className="bg-white w-10 h-10 text-xs md:text-base flex items-center justify-center cursor-default text-center outline-none"
                       type="text"
@@ -214,21 +217,19 @@ export default function Home() {
                     <div className="absolute flex flex-col p-2 w-32 md:w-full mt-6 md:mt-8 items-start justify-center"></div>
                     {walletConnect()}
                   </div>
-
                   {/* <button className="bg-blue-500 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded">MINT</button> */}
                 </main>
-                
               </div>
             </div>
           </div>
 
-          
+
           <div>
             {" "}
-            
+
           </div>
         </div>
-        
+
         <Footer />
       </div>
     </div>

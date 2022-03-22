@@ -8,7 +8,7 @@ import Logo from "../public/logo.png";
 import { Footer } from "./Footer";
 
 export default function Home() {
-  var bullsAddress = '0x9f14fe1bde644e3aaed1e124fca21d9057956033';
+  var bullsAddress = '0xc02dffb6dde184289b52c343697fe39464c45a36';
   const chain_id = 4002;
   const [active, setActive] = useState(false);
   const [account, setAccount] = useState("");
