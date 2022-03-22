@@ -137,28 +137,20 @@ export default function Home() {
           wrongNetwork={wrongNetwork}
         />
 
-        <div className="min-h-screen bg-gradient-to-r from-cyan-500 to-blue-500 w-full">
-          <div className="flex justify-center items-center">
-            <div className="mt-10 mx-10 w-full h-full md:hidden flex justify-center items-center">
-              <img
-                className="rounded-full w-44 h-44"
-                src="https://www.rookiebears.com/img/bear.gif"
-                alt=""
-              />
-            </div>
-          </div>
+        <div className="min-h-screen bg-fantom-bulls w-full bg-center bg-fixed bg-cover bg-no-repeat">
+          
           <div className="flex flex-row mt-10 md:mt-0 md:min-h-screen items-center justify-center h-full px-10 md:px-20">
-            <div className="flex flex-col items-left justify-left w-full md:w-2/4">
-              <h1 className="cursor-pointer text-blue-600 font-extrabold text-3xl md:text-5xl mb-5 uppercase">
+            <div className="flex flex-col items-left justify-left w-full">
+              <h1 className="cursor-pointer text-white font-extrabold text-5xl md:text-7xl mb-5 uppercase">
                 Fantom Bulls
               </h1>
-              <p className="text-2xl mb-5">
+              <p className="text-2xl mb-5 text-white">
                 The Fantom Bulls contains of <strong>1000</strong> genesis NFT's
               </p>
-              <p className="text-2xl mb-5">
+              <p className="text-2xl mb-5 text-white">
                 <strong>Launch Date:</strong> 01 AUG 2022
               </p>
-              <p className="text-2xl mb-5">
+              <p className="text-2xl mb-5 text-white">
                 <strong>Price:</strong> 10 FTM
               </p>
               <div className="flex flex-row items-center justify-left">
@@ -183,22 +175,14 @@ export default function Home() {
                 </div>
               </div>
               <div>
-                <a href="/Minter">
-                  <button className="mt-10 p-2 pr-10 pl-10 bg-trasparent text-3xl rounded-full uppercase font-bold border-2 border-blue-600 text-blue-600">
+                <a className="text-white" href="/Minter">
+                  <button className="mt-10 p-2 pr-10 pl-10 bg-trasparent text-3xl rounded-full uppercase font-bold border-2 border-white-600 text-white mb-20 md:mb-0">
                     Mint
                   </button>
                 </a>
               </div>
             </div>
-            <div className="flex flex-col items-center justify-center w-full md:w-2/4">
-              <div className="m-10 w-3/4 hidden md:block">
-                <img
-                  className="rounded-3xl"
-                  src="https://www.rookiebears.com/img/bear.gif"
-                  alt=""
-                />
-              </div>
-            </div>
+          
           </div>
         </div>
 

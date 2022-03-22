@@ -179,7 +179,7 @@ export default function Home() {
             <div className="flex flex-col items-center justify-cente w-full h-auto px-20 mb-10 rounded-xl">
               <img
                 className="rounded-full"
-                src="https://www.rookiebears.com/img/bear.gif"
+                src="https://fantom-bulls.web.app/fantom-bulls.gif"
                 alt=""
               />
             </div>
