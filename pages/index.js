@@ -18,6 +18,11 @@ export default function Home() {
   const [chainId, setChainId] = useState(null);
   const [wrongNetwork, setWrongNetwork] = useState(false);
   const [error, setError] = useState(null);
+  const deadline = 'April 02 2022 12:00:00 GMT+0530';
+  const [sec,setSec] = useState(0);
+  const [min,setMin] = useState(0);
+  const [hour,setHour] = useState(0);
+  const [day,setDay] = useState(0);
   let [num, setNum] = useState(1);
   let incNum = () => {
     if (num < 10) {
@@ -33,12 +38,7 @@ export default function Home() {
     setNum(e.target.value);
   };
   useEffect(() => {
-    if (loading == true) {
-      connect();
-    }
-    if (contract != null) {
-      loadMyNfts();
-    }
+    initializeClock(deadline);
   }, [loading]);
 
   async function loadMyNfts() {
@@ -139,6 +139,7 @@ export default function Home() {
           address={account}
           switchNetwork={switchNetwork}
           wrongNetwork={wrongNetwork}
+          display={false}
         />
 
         <div className="min-h-screen bg-fantom-bulls w-full bg-center bg-fixed bg-cover bg-no-repeat">
@@ -158,22 +159,22 @@ export default function Home() {
               </p>
               <div className="flex flex-row items-center justify-left">
                 <div className="flex flex-col items-center justify-center bg-yellow-600 p-0 h-20 w-20 mr-5 rounded-lg pl-2 pr-2">
-                  <div className="text-white text-xl font-bold">10</div>
+                  <div className="text-white text-xl font-bold">{day}</div>
                   <div className="text-white text-sm uppercase">Days</div>
                 </div>
                 <div className="text-2xl font-bold text-white">:</div>
                 <div className="flex flex-col items-center justify-center bg-yellow-600 p-0 h-20 w-20 mr-5 ml-5 rounded-lg pl-2 pr-2">
-                  <div className="text-white text-xl font-bold">5</div>
+                  <div className="text-white text-xl font-bold">{hour}</div>
                   <div className="text-white text-sm uppercase">HRS</div>
                 </div>
                 <div className="text-2xl font-bold text-white">:</div>
                 <div className="flex flex-col items-center justify-center bg-yellow-600 p-0 h-20 w-20 mr-5 ml-5 rounded-lg pl-2 pr-2">
-                  <div className="text-white text-xl font-bold">30</div>
+                  <div className="text-white text-xl font-bold">{min}</div>
                   <div className="text-white text-sm uppercase">MIN</div>
                 </div>
                 <div className="text-2xl font-bold text-white">:</div>
                 <div className="flex flex-col items-center justify-center bg-yellow-600 p-0 h-20 w-20 mr-5 ml-5 rounded-lg pl-2 pr-2">
-                  <div className="text-white text-xl font-bold">28</div>
+                  <div className="text-white text-xl font-bold">{sec}</div>
                   <div className="text-white text-sm uppercase">SEC</div>
                 </div>
               </div>
@@ -481,4 +482,29 @@ export default function Home() {
       </div>
     </div>
   );
+
+ 
+
+  function initializeClock(endtime) {
+    const timeinterval = setInterval(() => {
+      const t = getTimeRemaining(endtime);
+      if (t.total <= 0) {
+        clearInterval(timeinterval);
+      }
+    }, 1000);
+  }
+
+
+  function getTimeRemaining(endtime) {
+    const total = Date.parse(endtime) - Date.parse(new Date());
+    const seconds = Math.floor((total / 1000) % 60);
+    const minutes = Math.floor((total / 1000 / 60) % 60);
+    const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(total / (1000 * 60 * 60 * 24));
+    setSec(seconds);
+    setMin(minutes);
+    setHour(hours);
+    setDay(days);
+    return {total};
+  }
 }

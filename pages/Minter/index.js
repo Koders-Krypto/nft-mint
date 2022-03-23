@@ -172,7 +172,7 @@ export default function Home() {
     <div className="pt-0 min-h-screen bg-slate-200">
       <Head />
       <div className="flex flex-col items-center min-h-screen bg-slate-200">
-        <Nav callConnect={connect} loading={loading} active={active} address={account} switchNetwork={switchNetwork} wrongNetwork={wrongNetwork} />
+        <Nav callConnect={connect} loading={loading} active={active} address={account} switchNetwork={switchNetwork} wrongNetwork={wrongNetwork} display={true}/>
         <div className="grid grid-rows-1 md:grid-flow-col gap-2 mx-2 mt-20">
           <div className="user-list w-full max-w-md mx-auto bg-white rounded-xl shadow-xl flex justify-center items-center flex-col px-8 py-10">
             {" "}
