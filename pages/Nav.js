@@ -8,7 +8,7 @@ export default function Nav(props) {
           </h1>
         </a>
       </div>
-      <ul className="mr-5 md:mr-10 flex flex-row">
+      {/*<ul className="mr-5 md:mr-10 flex flex-row">
         <li>
           <a href="/Bulls">
             <button
@@ -55,7 +55,7 @@ export default function Nav(props) {
             </a>
           </li>
         )}
-      </ul>
+      </ul>*/}
     </nav>
   );
 }
