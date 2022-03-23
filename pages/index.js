@@ -152,7 +152,10 @@ export default function Home() {
                 The Fantom Bulls contains of <strong>1000</strong> genesis NFT's
               </p>
               <p className="text-2xl mb-5 text-white">
-                <strong>Launch Date:</strong> 01 AUG 2022
+                <strong>Launch Date:</strong> 02 APRIL 2022
+              </p>
+              <p className="text-2xl mb-5 text-white">
+                <strong>Launch Time:</strong> 06:30 UTC
               </p>
               <p className="text-2xl mb-5 text-white">
                 <strong>Price:</strong> 10 FTM
