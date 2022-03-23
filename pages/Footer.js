@@ -11,18 +11,18 @@ export const Footer = () => {
 			
 			<ul className="flex flex-wrap justify-center items-center mb-0 md:mb-2">
 				<li className='mb-4'>
-					<a href="#" className="mr-4 text-md text-blue-600 hover:underline md:mr-6 text-lg"><i className="fa-brands fa-discord"></i> Discord</a>
+					<a href="#" className="mr-4 text-md text-yellow-600 hover:underline md:mr-6 text-lg"><i className="fa-brands fa-discord"></i> Discord</a>
 				</li>
 				<li className='mb-4'>
-					<a href="#" className="mr-4 text-md text-blue-600 hover:underline md:mr-6 text-lg"><i className="fa-brands fa-twitter"></i> Twitter
+					<a href="#" className="mr-4 text-md text-yellow-600 hover:underline md:mr-6 text-lg"><i className="fa-brands fa-twitter"></i> Twitter
 						</a>
 				</li>
 				<li className='mb-4'>
 					<a href="#"
-						className="mr-4 text-md text-blue-600 hover:underline md:mr-6 text-lg"><i className="fa-brands fa-medium"></i> Medium</a>
+						className="mr-4 text-md text-yellow-600 hover:underline md:mr-6 text-lg"><i className="fa-brands fa-medium"></i> Medium</a>
 				</li>
 				<li className='mb-4'>
-					<a href="#" className="text-md text-blue-600 hover:underline text-lg"><i className="fa-solid fa-envelope"></i> Contact</a>
+					<a href="#" className="text-md text-yellow-600 hover:underline text-lg"><i className="fa-solid fa-envelope"></i> Contact</a>
 				</li>
 			</ul>
 		</div>

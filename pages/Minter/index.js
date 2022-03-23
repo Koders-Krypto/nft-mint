@@ -148,18 +148,18 @@ export default function Home() {
           active ? (
             <button
               onClick={mint}
-              className="py-2 mb-4 text-lg font-bold text-white rounded-full w-24 bg-blue-600 hover:bg-blue-800 ml-2">
+              className="py-2 mb-4 text-lg font-bold text-white rounded-full w-24 bg-yellow-600 hover:bg-blue-800 ml-2">
               MINT
             </button>
           ) : (
             <button
               onClick={connect}
-              className="py-2 mb-4 text-lg font-bold text-white rounded-lg w-24 bg-blue-600 hover:bg-blue-800 ml-2">
+              className="py-2 mb-4 text-lg font-bold text-white rounded-lg w-24 bg-yellow-600 hover:bg-blue-800 ml-2">
               Connect
             </button>
           )
         ) : (
-          <button className="py-2 mb-4 text-lg font-bold text-white rounded-lg w-24 bg-blue-600 hover:bg-blue-800 ml-2">
+          <button className="py-2 mb-4 text-lg font-bold text-white rounded-lg w-24 bg-yellow-600 hover:bg-blue-800 ml-2">
             Loading...
           </button>
         )}
@@ -192,7 +192,7 @@ export default function Home() {
                 <main className="flex items-center justify-center">
                   <div className="flex flex-row border  rounded-lg border-gray-400 relative border-none mt-5">
                     <button
-                      className="font-semibold bg-blue-600 hover:bg-blue-800 text-white border-gray-400 h-10 w-10 flex rounded-full outline-none focus:outline-none cursor-pointer"
+                      className="font-semibold bg-yellow-600 hover:bg-blue-800 text-white border-gray-400 h-10 w-10 flex rounded-full outline-none focus:outline-none cursor-pointer"
                       onClick={decNum}>
                       <span className="m-auto">-</span>
                     </button>
@@ -210,7 +210,7 @@ export default function Home() {
                       disabled
                     />
                     <button
-                      className="font-semibold bg-blue-600 hover:bg-blue-800 text-white border-gray-400 h-10 w-10 flex rounded-full outline-none focus:outline-none cursor-pointer"
+                      className="font-semibold bg-yellow-600 hover:bg-blue-800 text-white border-gray-400 h-10 w-10 flex rounded-full outline-none focus:outline-none cursor-pointer"
                       onClick={incNum}>
                       <span className="m-auto">+</span>
                     </button>

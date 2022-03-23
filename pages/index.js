@@ -8,7 +8,7 @@ import Logo from "../public/logo.png";
 import { Footer } from "./Footer";
 
 export default function Home() {
-  var bullsAddress = '0xc02dffb6dde184289b52c343697fe39464c45a36';
+  var bullsAddress = "0xc02dffb6dde184289b52c343697fe39464c45a36";
   const chain_id = 4002;
   const [active, setActive] = useState(false);
   const [account, setAccount] = useState("");
@@ -71,7 +71,7 @@ export default function Home() {
             params: [
               {
                 chainId: `0x${Number(chain_id).toString(16)}`,
-                chainId: '0xfa2',
+                chainId: "0xfa2",
                 rpcUrls: [
                   "https://ropsten.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
                 ],
@@ -109,7 +109,11 @@ export default function Home() {
         }
         const signer = provider.getSigner();
         const address = await signer.getAddress();
-        const bullsContract = new ethers.Contract(bullsAddress, FantomBulls.abi, signer);
+        const bullsContract = new ethers.Contract(
+          bullsAddress,
+          FantomBulls.abi,
+          signer
+        );
         setContract(bullsContract);
         setActive(true);
         setAccount(address);
@@ -138,8 +142,7 @@ export default function Home() {
         />
 
         <div className="min-h-screen bg-fantom-bulls w-full bg-center bg-fixed bg-cover bg-no-repeat">
-          
-          <div className="flex flex-row mt-10 md:mt-0 md:min-h-screen items-center justify-center h-full px-10 md:px-20">
+          <div className="flex flex-row mt-10 md:mt-0 min-h-screen items-center justify-center h-full px-10 md:px-20">
             <div className="flex flex-col items-left justify-left w-full">
               <h1 className="cursor-pointer text-white font-extrabold text-5xl md:text-7xl mb-5 uppercase">
                 Fantom Bulls
@@ -154,26 +157,27 @@ export default function Home() {
                 <strong>Price:</strong> 10 FTM
               </p>
               <div className="flex flex-row items-center justify-left">
-                <div className="flex flex-col items-center justify-center bg-blue-600 p-0 h-20 w-20 mr-5 rounded-lg pl-2 pr-2">
+                <div className="flex flex-col items-center justify-center bg-yellow-600 p-0 h-20 w-20 mr-5 rounded-lg pl-2 pr-2">
                   <div className="text-white text-xl font-bold">10</div>
                   <div className="text-white text-sm uppercase">Days</div>
                 </div>
                 <div className="text-2xl font-bold text-white">:</div>
-                <div className="flex flex-col items-center justify-center bg-blue-600 p-0 h-20 w-20 mr-5 ml-5 rounded-lg pl-2 pr-2">
+                <div className="flex flex-col items-center justify-center bg-yellow-600 p-0 h-20 w-20 mr-5 ml-5 rounded-lg pl-2 pr-2">
                   <div className="text-white text-xl font-bold">5</div>
                   <div className="text-white text-sm uppercase">HRS</div>
                 </div>
                 <div className="text-2xl font-bold text-white">:</div>
-                <div className="flex flex-col items-center justify-center bg-blue-600 p-0 h-20 w-20 mr-5 ml-5 rounded-lg pl-2 pr-2">
+                <div className="flex flex-col items-center justify-center bg-yellow-600 p-0 h-20 w-20 mr-5 ml-5 rounded-lg pl-2 pr-2">
                   <div className="text-white text-xl font-bold">30</div>
                   <div className="text-white text-sm uppercase">MIN</div>
                 </div>
                 <div className="text-2xl font-bold text-white">:</div>
-                <div className="flex flex-col items-center justify-center bg-blue-600 p-0 h-20 w-20 mr-5 ml-5 rounded-lg pl-2 pr-2">
+                <div className="flex flex-col items-center justify-center bg-yellow-600 p-0 h-20 w-20 mr-5 ml-5 rounded-lg pl-2 pr-2">
                   <div className="text-white text-xl font-bold">28</div>
                   <div className="text-white text-sm uppercase">SEC</div>
                 </div>
               </div>
+              {/*
               <div>
                 <a className="text-white" href="/Minter">
                   <button className="mt-10 p-2 pr-10 pl-10 bg-trasparent text-3xl rounded-full uppercase font-bold border-2 border-white-600 text-white mb-20 md:mb-0">
@@ -181,8 +185,8 @@ export default function Home() {
                   </button>
                 </a>
               </div>
+              */}
             </div>
-          
           </div>
         </div>
 
@@ -234,7 +238,7 @@ export default function Home() {
                           <a
                             href="#"
                             className="flex rounded-full hover:bg-blue-50 h-10 w-10">
-                            <i className="mdi mdi-twitter text-blue-300 mx-auto mt-2"></i>
+                            <i className="mdi mdi-twitter text-yellow-300 mx-auto mt-2"></i>
                           </a>
 
                           <a
@@ -412,7 +416,7 @@ export default function Home() {
                     <div className="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
                       <div className="order-1 w-5/12"></div>
                       <div className="order-1 w-5/12 px-1 py-4 text-right">
-                        <p className="mb-3 text-base text-blue-300">Step 1</p>
+                        <p className="mb-3 text-base text-yellow-300">Step 1</p>
                         <h4 className="mb-3 font-bold text-lg md:text-2xl">
                           Launch
                         </h4>
@@ -424,7 +428,7 @@ export default function Home() {
                     <div className="mb-8 flex justify-between items-center w-full right-timeline">
                       <div className="order-1 w-5/12"></div>
                       <div className="order-1  w-5/12 px-1 py-4 text-left">
-                        <p className="mb-3 text-base text-blue-300">Step 2</p>
+                        <p className="mb-3 text-base text-yellow-300">Step 2</p>
                         <h4 className="mb-3 font-bold text-lg md:text-2xl">
                           Fantom Bulls DAO
                         </h4>
@@ -438,7 +442,7 @@ export default function Home() {
                     <div className="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
                       <div className="order-1 w-5/12"></div>
                       <div className="order-1 w-5/12 px-1 py-4 text-right">
-                        <p className="mb-3 text-base text-blue-300">Step 3</p>
+                        <p className="mb-3 text-base text-yellow-300">Step 3</p>
                         <h4 className="mb-3 font-bold text-lg md:text-2xl">
                           Sandbox Land
                         </h4>
@@ -452,7 +456,7 @@ export default function Home() {
                       <div className="order-1 w-5/12"></div>
 
                       <div className="order-1  w-5/12 px-1 py-4">
-                        <p className="mb-3 text-base text-blue-300">Step 4</p>
+                        <p className="mb-3 text-base text-yellow-300">Step 4</p>
                         <h4 className="mb-3 font-bold  text-lg md:text-2xl text-left">
                           Fanton Bulls Elite
                         </h4>
