@@ -72,8 +72,8 @@
       ]
     },
     "/Users/vijayankith/projects/crypto/nft-mint/contracts/FantomBulls.sol": {
-      "lastModificationDate": 1647953525806,
-      "contentHash": "8fce3550e9dafeca2290e4a8441526db",
+      "lastModificationDate": 1648116227841,
+      "contentHash": "e236e806e1f7a4dba9604142605fca80",
       "sourceName": "contracts/FantomBulls.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -98,15 +98,36 @@
           }
         }
       },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol",
-        "@openzeppelin/contracts/access/Ownable.sol"
-      ],
+      "imports": [],
       "versionPragmas": [
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.1",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
         ">=0.7.0 <0.9.0"
       ],
       "artifacts": [
-        "FantomBulls"
+        "Address",
+        "Context",
+        "ERC165",
+        "ERC721",
+        "ERC721Enumerable",
+        "FantomBulls",
+        "IERC165",
+        "IERC721",
+        "IERC721Enumerable",
+        "IERC721Metadata",
+        "IERC721Receiver",
+        "Ownable",
+        "Strings"
       ]
     },
     "/Users/vijayankith/projects/crypto/nft-mint/node_modules/@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol": {

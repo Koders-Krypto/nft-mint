@@ -8,7 +8,7 @@ import Nav from "../Nav";
 import { Footer } from "../Footer";
 
 function Bulls() {
-  var bullsAddress = '0xD9705b9982d6300bC0BE825305da0c4656DaBf0e';
+  var bullsAddress = '0x19AA74C9074d35d2d9F93D9abf8972bCB2FBfCbF';
   const chain_id = 4002;
   const [active, setActive] = useState(false);
   const [account, setAccount] = useState("");

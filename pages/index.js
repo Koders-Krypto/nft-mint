@@ -1,144 +1,27 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import Web3Modal from "web3modal";
-import { BigNumber, ethers } from "ethers";
-import FantomBulls from "../artifacts/contracts/FantomBulls.sol/FantomBulls.json";
 import Nav from "./Nav";
 import Logo from "../public/logo.png";
 import { Footer } from "./Footer";
 
 export default function Home() {
-  var bullsAddress = "0xc02dffb6dde184289b52c343697fe39464c45a36";
-  const chain_id = 4002;
-  const [active, setActive] = useState(false);
-  const [account, setAccount] = useState("");
-  const [loading, setLoading] = useState(true);
-  const [nfts, setNfts] = useState([]);
-  const [contract, setContract] = useState(null);
-  const [chainId, setChainId] = useState(null);
-  const [wrongNetwork, setWrongNetwork] = useState(false);
-  const [error, setError] = useState(null);
   const deadline = 'April 02 2022 12:00:00 GMT+0530';
-  const [sec,setSec] = useState(0);
-  const [min,setMin] = useState(0);
-  const [hour,setHour] = useState(0);
-  const [day,setDay] = useState(0);
-  let [num, setNum] = useState(1);
-  let incNum = () => {
-    if (num < 10) {
-      setNum(Number(num) + 1);
-    }
-  };
-  let decNum = () => {
-    if (num > 1) {
-      setNum(num - 1);
-    }
-  };
-  let handleChange = (e) => {
-    setNum(e.target.value);
-  };
+  const [sec, setSec] = useState(0);
+  const [min, setMin] = useState(0);
+  const [hour, setHour] = useState(0);
+  const [day, setDay] = useState(0);
+
+
   useEffect(() => {
     initializeClock(deadline);
-  }, [loading]);
+  });
 
-  async function loadMyNfts() {
-    try {
-      const tokensOwned = await contract.balanceOf(account);
-      const tokenIds = [];
-      for (let i = 0; i < tokensOwned; i++) {
-        const tokenId = await contract.tokenOfOwnerByIndex(account, i);
-        tokenIds.push(tokenId.toString());
-      }
-      setNfts(tokenIds);
-    } catch (e) {
-      setError(e);
-    }
-  }
-
-  async function switchNetwork() {
-    try {
-      window.ethereum.request({
-        method: "wallet_switchEthereumChain",
-        params: [{ chainId: `0x${Number(chain_id).toString(16)}` }],
-        // params: [{ chainId:'0xfa2'}]
-      });
-      await connect();
-    } catch (switchError) {
-      if (switchError.code === 4902) {
-        try {
-          window.ethereum.request({
-            method: "wallet_addEthereumChain",
-            params: [
-              {
-                chainId: `0x${Number(chain_id).toString(16)}`,
-                chainId: "0xfa2",
-                rpcUrls: [
-                  "https://ropsten.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
-                ],
-                chainName: "Ropsten Test Network",
-                nativeCurrency: {
-                  name: "ETHER",
-                  symbol: "ETH",
-                  decimals: 18,
-                },
-                blockExplorerUrls: ["https://ropsten.etherscan.io"],
-              },
-            ],
-          });
-        } catch (addError) {
-          setError(addError);
-        }
-      } else {
-        setError(switchError);
-      }
-    }
-  }
-
-  async function connect() {
-    if (window.ethereum) {
-      try {
-        const web3Modal = new Web3Modal();
-        const connection = await web3Modal.connect();
-        const provider = new ethers.providers.Web3Provider(connection);
-        const network = await provider.getNetwork();
-        setChainId(network.chainId);
-        if (network.chainId != chain_id) {
-          setWrongNetwork(true);
-        } else {
-          setWrongNetwork(false);
-        }
-        const signer = provider.getSigner();
-        const address = await signer.getAddress();
-        const bullsContract = new ethers.Contract(
-          bullsAddress,
-          FantomBulls.abi,
-          signer
-        );
-        setContract(bullsContract);
-        setActive(true);
-        setAccount(address);
-        setLoading(false);
-        // loadMyNfts();
-      } catch (error) {
-        setError(error);
-        setLoading(false);
-      }
-    } else {
-      setError("no metamask wallets found!");
-    }
-  }
 
   return (
     <div className="pt-0 min-h-screen bg-slate-200">
       <Head />
       <div className="flex flex-col items-center min-h-screen bg-slate-200">
         <Nav
-          callConnect={connect}
-          loading={loading}
-          active={active}
-          address={account}
-          switchNetwork={switchNetwork}
-          wrongNetwork={wrongNetwork}
           display={false}
         />
 
@@ -486,7 +369,7 @@ export default function Home() {
     </div>
   );
 
- 
+
 
   function initializeClock(endtime) {
     const timeinterval = setInterval(() => {
@@ -508,6 +391,6 @@ export default function Home() {
     setMin(minutes);
     setHour(hours);
     setDay(days);
-    return {total};
+    return { total };
   }
 }
