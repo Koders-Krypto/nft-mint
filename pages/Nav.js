@@ -31,7 +31,8 @@ export default function Nav(props) {
             ) : props.active ? (
               <li>
                 <button
-                  className="mr-0 md:mr-6 bg-yellow-600 p-3 pl-10 pr-10 rounded-full transition-all hover:bg-yellow-500 text-white text-center" disabled>
+                  className="mr-0 md:mr-6 bg-yellow-600 p-3 pl-10 pr-10 rounded-full transition-all hover:bg-yellow-500 text-white text-center"
+                  disabled>
                   {props.address.substring(0, 4) +
                     "....." +
                     props.address.substring(props.address.length - 4)}
@@ -57,17 +58,50 @@ export default function Nav(props) {
           )}
         </ul>
       </nav>
-    )
+    );
   } else {
     return (
       <nav className="fixed flex justify-between items-center bg-transparent h-20  w-full z-10">
         <div className="ml-5 md:ml-10">
           <a href="/">
-            <h1 className="cursor-pointer text-yellow-600 font-extrabold text-xl md:text-3xl uppercase">
+            <h1 className="cursor-pointer text-yellow-600 font-extrabold text-2xl md:text-3xl uppercase">
               Fantom Bulls
             </h1>
           </a>
         </div>
+
+        <ul className="md:flex flex-wrap justify-center items-center mb-0 md:mb-2 px-4 hidden">
+          <li className="">
+            <a
+              href="https://discord.gg/p4taxK5r" target="_blank"
+              className="mr-4 text-md text-yellow-300  md:mr-6 text-xl no-underline">
+              <i className="fa-brands fa-discord"></i> Discord
+            </a>
+          </li>
+          <li className="">
+            <a
+              href="https://twitter.com/BullsFantom" target="_blank"
+              className="mr-4 text-md text-yellow-300  md:mr-6 text-xl no-underline">
+              <i className="fa-brands fa-twitter"></i> Twitter
+            </a>
+          </li>
+        </ul>
+        <ul className="flex flex-wrap justify-center items-center mb-0 md:mb-2 px-4 md:hidden">
+          <li className="">
+            <a
+              href="https://discord.gg/p4taxK5r" target="_blank"
+              className="mr-4 text-md text-yellow-300 md:mr-6 text-2xl no-underline">
+              <i className="fa-brands fa-discord"></i>
+            </a>
+          </li>
+          <li className="">
+            <a
+              href="https://twitter.com/BullsFantom" target="_blank"
+              className="mr-4 text-md text-yellow-300 md:mr-6 text-2xl no-underline">
+              <i className="fa-brands fa-twitter"></i>
+            </a>
+          </li>
+        </ul>
       </nav>
     );
   }

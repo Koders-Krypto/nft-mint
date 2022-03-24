@@ -88,8 +88,7 @@ export default function Home() {
                     </h1>
 
                     <p className="text-gray-700 text-lg font-light">
-                      With our of combined experience, we've got a power of the
-                      mightly bull.
+                     
                     </p>
                   </div>
                 </div>
@@ -100,17 +99,17 @@ export default function Home() {
                       <a href="#" className="mx-auto">
                         <img
                           className="rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
-                          src="https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?fit=clamp&w=400&h=400&q=80"
+                          src="https://fantom-bulls.web.app/1.png"
                         />
                       </a>
 
                       <div className="text-center mt-6">
                         <h1 className="text-gray-900 text-xl font-bold mb-1">
-                          Tranter Jaskulski
+                          0xtofu
                         </h1>
 
                         <div className="text-gray-700 font-light mb-2">
-                          Founder & Specialist
+                          Co-Founder
                         </div>
 
                         <div
@@ -143,17 +142,17 @@ export default function Home() {
                       <a href="#" className="mx-auto">
                         <img
                           className="rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
-                          src="https://images.unsplash.com/photo-1634896941598-b6b500a502a7?fit=clamp&w=400&h=400&q=80"
+                          src="https://fantom-bulls.web.app/2.png"
                         />
                       </a>
 
                       <div className="text-center mt-6">
                         <h1 className="text-gray-900 text-xl font-bold mb-1">
-                          Denice Jagna
+                          0xcafu
                         </h1>
 
                         <div className="text-gray-700 font-light mb-2">
-                          Tired & M. Specialist
+                          Co-Founder
                         </div>
 
                         <div
@@ -186,17 +185,17 @@ export default function Home() {
                       <a href="#" className="mx-auto">
                         <img
                           className="rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
-                          src="https://images.unsplash.com/photo-1634193295627-1cdddf751ebf?fit=clamp&w=400&h=400&q=80"
+                          src="https://fantom-bulls.web.app/3.png"
                         />
                       </a>
 
                       <div className="text-center mt-6">
                         <h1 className="text-gray-900 text-xl font-bold mb-1">
-                          Kenji Milton
+                          Kenji
                         </h1>
 
                         <div className="text-gray-700 font-light mb-2">
-                          Team Memeber
+                          Core Designer
                         </div>
 
                         <div
@@ -229,17 +228,17 @@ export default function Home() {
                       <a href="#" className="mx-auto">
                         <img
                           className="rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
-                          src="https://images.unsplash.com/photo-1635003913011-95971abba560?fit=clamp&w=400&h=400&q=80"
+                          src="https://fantom-bulls.web.app/4.png"
                         />
                       </a>
 
                       <div className="text-center mt-6">
                         <h1 className="text-gray-900 text-xl font-bold mb-1">
-                          Doesn't matter
+                          Ally
                         </h1>
 
                         <div className="text-gray-700 font-light mb-2">
-                          Will be fired
+                          Designer
                         </div>
 
                         <div
@@ -305,7 +304,7 @@ export default function Home() {
                       <div className="order-1 w-5/12 px-1 py-4 text-right">
                         <p className="mb-3 text-base text-yellow-300">Step 1</p>
                         <h4 className="mb-3 font-bold text-lg md:text-2xl">
-                          Launch
+                          Fanton Bulls
                         </h4>
                         <p className="text-sm md:text-base leading-snug text-gray-50 text-opacity-100">
                           Collection of 1000 unique genesis NFT Fantom Bulls
@@ -315,14 +314,12 @@ export default function Home() {
                     <div className="mb-8 flex justify-between items-center w-full right-timeline">
                       <div className="order-1 w-5/12"></div>
                       <div className="order-1  w-5/12 px-1 py-4 text-left">
-                        <p className="mb-3 text-base text-yellow-300">Step 2</p>
+                        <p className="mb-3 text-base text-yellow-300">Step 2 (v2 Airdrop)</p>
                         <h4 className="mb-3 font-bold text-lg md:text-2xl">
-                          Fantom Bulls DAO
+                          Fantom Bulls Elite
                         </h4>
                         <p className="text-sm md:text-base leading-snug text-gray-50 text-opacity-100">
-                          The DAO will allow our members to have a voice where
-                          they can help us decide which direction the project is
-                          headed.
+                          Fantom Bulls Elite is a group of elite Fantom Bulls holders of Fantom Bulls genesis NFTs are qualifired for the airdrop of the Fantom Bulls Elite NFTs.
                         </p>
                       </div>
                     </div>
@@ -331,10 +328,12 @@ export default function Home() {
                       <div className="order-1 w-5/12 px-1 py-4 text-right">
                         <p className="mb-3 text-base text-yellow-300">Step 3</p>
                         <h4 className="mb-3 font-bold text-lg md:text-2xl">
-                          Sandbox Land
+                          Fantom Bulls DAO
                         </h4>
                         <p className="text-sm md:text-base leading-snug text-gray-50 text-opacity-100">
-                          Acquire the land on Sandbox.
+                        The DAO will allow our members to have a voice where
+                          they can help us decide which direction the project is
+                          headed.
                         </p>
                       </div>
                     </div>
@@ -345,11 +344,10 @@ export default function Home() {
                       <div className="order-1  w-5/12 px-1 py-4">
                         <p className="mb-3 text-base text-yellow-300">Step 4</p>
                         <h4 className="mb-3 font-bold  text-lg md:text-2xl text-left">
-                          Fanton Bulls Elite
+                          Fanton Bulls Token Airdrop
                         </h4>
                         <p className="text-sm md:text-base leading-snug text-gray-50 text-opacity-100">
-                          Collection of 2000 bulls and join the elite bull
-                          community.
+                          Launch of 'BULL' token and aidrop to the NFT holders. 
                         </p>
                       </div>
                     </div>
