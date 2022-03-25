@@ -1333,7 +1333,7 @@ contract FantomBulls is ERC721Enumerable, Ownable {
 
   string baseURI;
   string public baseExtension = ".json";
-  uint256 public cost = 0.1 ether;
+  uint256 public cost = 10 ether;
   uint256 public maxSupply = 1000;
   uint256 public maxMintAmount = 10;
   bool public paused = false;
