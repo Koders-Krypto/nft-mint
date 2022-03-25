@@ -8,8 +8,8 @@ import Nav from "../Nav";
 import { Footer } from "../Footer";
 
 function Bulls() {
-  var bullsAddress = '0x19AA74C9074d35d2d9F93D9abf8972bCB2FBfCbF';
-  const chain_id = 4002;
+  var bullsAddress = '0xf2b4e66411905d08Cf708526fc76a399cb4Dc7F2';
+  const chain_id = 250;
   const [active, setActive] = useState(false);
   const [account, setAccount] = useState("");
   const [loading, setLoading] = useState(true);
@@ -134,7 +134,7 @@ function Bulls() {
                       Fantom Bulls #{nft.tokenId}
                     </h2>
                     {/* <button className="absolute top-2 right-2 z-5 bg-yellow-600 p-2 rounded-full h-12 w-12"> */}
-                    <a target="_blank"  download={`${nft.tokenId}.png`} href={nft.tokenURI} title={`Fantom Bulls #${nft.tokenId}`}>
+                    <a target="_blank" href={nft.tokenURI} title={`Fantom Bulls #${nft.tokenId}`} download>
                       <button className="absolute top-2 right-2 z-5 bg-yellow-600 p-2 rounded-full h-12 w-12"><i className="fa-solid fa-download text-white"></i></button>
                       </a>
                     {/* </button> */}

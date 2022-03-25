@@ -71,65 +71,6 @@
         "console"
       ]
     },
-    "/Users/vijayankith/projects/crypto/nft-mint/contracts/FantomBulls.sol": {
-      "lastModificationDate": 1648116227841,
-      "contentHash": "e236e806e1f7a4dba9604142605fca80",
-      "sourceName": "contracts/FantomBulls.sol",
-      "solcConfig": {
-        "version": "0.8.4",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0",
-        "^0.8.0",
-        "^0.8.0",
-        "^0.8.1",
-        "^0.8.0",
-        "^0.8.0",
-        "^0.8.0",
-        "^0.8.0",
-        "^0.8.0",
-        "^0.8.0",
-        "^0.8.0",
-        "^0.8.0",
-        ">=0.7.0 <0.9.0"
-      ],
-      "artifacts": [
-        "Address",
-        "Context",
-        "ERC165",
-        "ERC721",
-        "ERC721Enumerable",
-        "FantomBulls",
-        "IERC165",
-        "IERC721",
-        "IERC721Enumerable",
-        "IERC721Metadata",
-        "IERC721Receiver",
-        "Ownable",
-        "Strings"
-      ]
-    },
     "/Users/vijayankith/projects/crypto/nft-mint/node_modules/@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol": {
       "lastModificationDate": 1647613898153,
       "contentHash": "88095889e59d16821879a8083f906503",
@@ -569,6 +510,65 @@
       ],
       "artifacts": [
         "IERC165"
+      ]
+    },
+    "/Users/vijayankith/projects/crypto/nft-mint/contracts/FantomBulls.sol": {
+      "lastModificationDate": 1648116227841,
+      "contentHash": "e236e806e1f7a4dba9604142605fca80",
+      "sourceName": "contracts/FantomBulls.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.1",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        "^0.8.0",
+        ">=0.7.0 <0.9.0"
+      ],
+      "artifacts": [
+        "Address",
+        "Context",
+        "ERC165",
+        "ERC721",
+        "ERC721Enumerable",
+        "FantomBulls",
+        "IERC165",
+        "IERC721",
+        "IERC721Enumerable",
+        "IERC721Metadata",
+        "IERC721Receiver",
+        "Ownable",
+        "Strings"
       ]
     }
   }

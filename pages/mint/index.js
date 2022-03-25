@@ -9,9 +9,9 @@ import Logo from "../../public/logo.png";
 import { Footer } from "../Footer";
 
 export default function Home() {
-  var bullsAddress = "0x19AA74C9074d35d2d9F93D9abf8972bCB2FBfCbF";
-  const chain_id = 4002;
-  const mintPrice = "1";
+  var bullsAddress = "0xf2b4e66411905d08Cf708526fc76a399cb4Dc7F2";
+  const chain_id = 250;
+  const mintPrice = "10";
   const [active, setActive] = useState(false);
   const [account, setAccount] = useState("");
   const [loading, setLoading] = useState(true);
