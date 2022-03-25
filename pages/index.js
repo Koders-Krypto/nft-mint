@@ -142,7 +142,7 @@ export default function Home() {
                       <a href="#" className="mx-auto">
                         <img
                           className="rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
-                          src="https://firebasestorage.googleapis.com/v0/b/fantom-bulls.appspot.com/o/2.png?alt=media&token=63f367f0-d4ea-4f7c-a241-aa079af0b12d"
+                          src="https://firebasestorage.googleapis.com/v0/b/fantom-bulls.appspot.com/o/16.png?alt=media&token=d96d6896-9b26-4da3-b5c3-94637f7b3a3f"
                         />
                       </a>
 
