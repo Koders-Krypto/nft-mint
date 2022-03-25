@@ -99,7 +99,7 @@ export default function Home() {
                       <a href="#" className="mx-auto">
                         <img
                           className="rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
-                          src="https://fantom-bulls.web.app/1.png"
+                          src="https://firebasestorage.googleapis.com/v0/b/fantom-bulls.appspot.com/o/1.png?alt=media&token=9e201249-e5af-4dab-bd47-f51dd877f54f"
                         />
                       </a>
 
@@ -142,7 +142,7 @@ export default function Home() {
                       <a href="#" className="mx-auto">
                         <img
                           className="rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
-                          src="https://fantom-bulls.web.app/2.png"
+                          src="https://firebasestorage.googleapis.com/v0/b/fantom-bulls.appspot.com/o/2.png?alt=media&token=63f367f0-d4ea-4f7c-a241-aa079af0b12d"
                         />
                       </a>
 
@@ -185,7 +185,7 @@ export default function Home() {
                       <a href="#" className="mx-auto">
                         <img
                           className="rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
-                          src="https://fantom-bulls.web.app/3.png"
+                          src="https://firebasestorage.googleapis.com/v0/b/fantom-bulls.appspot.com/o/3.png?alt=media&token=175ca469-20e7-45b1-9a6d-3898a40deeb5"
                         />
                       </a>
 
@@ -228,7 +228,7 @@ export default function Home() {
                       <a href="#" className="mx-auto">
                         <img
                           className="rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
-                          src="https://fantom-bulls.web.app/4.png"
+                          src="https://firebasestorage.googleapis.com/v0/b/fantom-bulls.appspot.com/o/4.png?alt=media&token=b6a82102-ff5d-49db-8197-39051bbd2cbf"
                         />
                       </a>
 
