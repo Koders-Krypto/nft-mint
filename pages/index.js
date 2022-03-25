@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import Nav from "./Nav";
 import Logo from "../public/logo.png";
-import { Footer } from "./Footer";
+import Footer from "./Footer";
 
 export default function Home() {
   const deadline = 'April 02 2022 12:00:00 GMT+0530';

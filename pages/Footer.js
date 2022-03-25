@@ -1,7 +1,6 @@
-import React from "react";
 import "@fortawesome/fontawesome-free/css/all.css";
 
-export const Footer = () => {
+export default function Footer() {
   return (
     <div className="flex items-center justify-center bg-slate-200 mt-10 mb-5 align-middle">
       <footer className="p-2 bg-slate-200 rounded-lg md:px-0 md:py-0">
