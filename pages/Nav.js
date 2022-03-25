@@ -73,7 +73,7 @@ export default function Nav(props) {
         <ul className="md:flex flex-wrap justify-center items-center mb-0 md:mb-2 px-4 hidden">
           <li className="">
             <a
-              href="https://discord.gg/p4taxK5r" target="_blank"
+              href="https://discord.com/invite/xpyDVDbJRX" target="_blank"
               className="mr-4 text-md text-yellow-300  md:mr-6 text-xl no-underline">
               <i className="fa-brands fa-discord"></i> Discord
             </a>
@@ -89,7 +89,7 @@ export default function Nav(props) {
         <ul className="flex flex-wrap justify-center items-center mb-0 md:mb-2 px-4 md:hidden">
           <li className="">
             <a
-              href="https://discord.gg/p4taxK5r" target="_blank"
+              href="https://discord.com/invite/xpyDVDbJRX" target="_blank"
               className="mr-4 text-md text-yellow-300 md:mr-6 text-2xl no-underline">
               <i className="fa-brands fa-discord"></i>
             </a>

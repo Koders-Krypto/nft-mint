@@ -8,9 +8,8 @@ import Nav from "../Nav";
 import Logo from "../../public/logo.png";
 import { Footer } from "../Footer";
 
-
 export default function Home() {
-  var bullsAddress = '0x19AA74C9074d35d2d9F93D9abf8972bCB2FBfCbF';
+  var bullsAddress = "0x19AA74C9074d35d2d9F93D9abf8972bCB2FBfCbF";
   const chain_id = 4002;
   const mintPrice = "1";
   const [active, setActive] = useState(false);
@@ -58,13 +57,12 @@ export default function Home() {
     } catch (e) {
       setError(e);
     }
-
   }
 
   async function switchNetwork() {
     try {
       window.ethereum.request({
-        method: 'wallet_switchEthereumChain',
+        method: "wallet_switchEthereumChain",
         params: [{ chainId: `0x${Number(chain_id).toString(16)}` }],
       });
       await connect();
@@ -73,27 +71,29 @@ export default function Home() {
         try {
           window.ethereum.request({
             method: "wallet_addEthereumChain",
-            params: [{
-              chainId: `0x${Number(chain_id).toString(16)}`,
-              rpcUrls: ["https://ropsten.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161"],
-              chainName: "Ropsten Test Network",
-              nativeCurrency: {
-                name: "ETHER",
-                symbol: "ETH",
-                decimals: 18
+            params: [
+              {
+                chainId: `0x${Number(chain_id).toString(16)}`,
+                rpcUrls: [
+                  "https://ropsten.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
+                ],
+                chainName: "Ropsten Test Network",
+                nativeCurrency: {
+                  name: "ETHER",
+                  symbol: "ETH",
+                  decimals: 18,
+                },
+                blockExplorerUrls: ["https://ropsten.etherscan.io"],
               },
-              blockExplorerUrls: ["https://ropsten.etherscan.io"]
-            }]
+            ],
           });
-        }
-        catch (addError) {
+        } catch (addError) {
           setError(addError);
         }
       } else {
         setError(switchError);
       }
     }
-
   }
 
   async function connect() {
@@ -111,7 +111,11 @@ export default function Home() {
         }
         const signer = provider.getSigner();
         const address = await signer.getAddress();
-        const bullContract = new ethers.Contract(bullsAddress, FantomBulls.abi, signer);
+        const bullContract = new ethers.Contract(
+          bullsAddress,
+          FantomBulls.abi,
+          signer
+        );
         setContract(bullContract);
         setActive(true);
         setAccount(address);
@@ -132,7 +136,7 @@ export default function Home() {
         console.log(num);
         var amount = String(num * mintPrice);
         console.log(amount);
-        const options = { value: ethers.utils.parseEther(amount) }
+        const options = { value: ethers.utils.parseEther(amount) };
         const performMint = await contract.mint(num, options);
         await performMint.wait();
         loadMyNfts();
@@ -172,64 +176,72 @@ export default function Home() {
     <div className="pt-0 min-h-screen bg-slate-200">
       <Head />
       <div className="flex flex-col items-center min-h-screen bg-slate-200">
-        <Nav callConnect={connect} loading={loading} active={active} address={account} switchNetwork={switchNetwork} wrongNetwork={wrongNetwork} display={true}/>
-        <div className="grid grid-rows-1 md:grid-flow-col gap-2 mx-2 mt-20">
-          <div className="user-list w-full max-w-md mx-auto bg-white rounded-xl shadow-xl flex justify-center items-center flex-col px-8 py-10">
-            {" "}
-            <div className="flex flex-col items-center justify-cente w-full h-auto px-20 mb-10 rounded-xl">
-              <img
-                className="rounded-full"
-                src="https://fantom-bulls.web.app/fantom-bulls.gif"
-                alt=""
-              />
-            </div>
-            <div className="flex flex-col items-center justify-center">
-              <div className="user-list w-full max-w-lg mx-auto bg-white rounded-xl flex flex-col">
-                <h1 className="font-extrabold text-2xl mb-1 text-center">
-                  1 / 1000
-                </h1>
-                <h4 className="font-medium text-base text-center">1 Fantom Bull Costs 10 FTM</h4>
-                <main className="flex items-center justify-center">
-                  <div className="flex flex-row border  rounded-lg border-gray-400 relative border-none mt-5">
-                    <button
-                      className="font-semibold bg-yellow-600 hover:bg-blue-800 text-white border-gray-400 h-10 w-10 flex rounded-full outline-none focus:outline-none cursor-pointer"
-                      onClick={decNum}>
-                      <span className="m-auto">-</span>
-                    </button>
-                    <input
-                      type="hidden"
-                      className="md:p-2 p-1 text-xs md:text-base border-gray-400 focus:outline-none text-center"
-                      readOnly
-                      name="custom-input-number"
-                    />
-                    <input
-                      className="bg-white w-10 h-10 text-xs md:text-base flex items-center justify-center cursor-default text-center outline-none"
-                      type="text"
-                      value={num}
-                      onChange={handleChange}
-                      disabled
-                    />
-                    <button
-                      className="font-semibold bg-yellow-600 hover:bg-blue-800 text-white border-gray-400 h-10 w-10 flex rounded-full outline-none focus:outline-none cursor-pointer"
-                      onClick={incNum}>
-                      <span className="m-auto">+</span>
-                    </button>
-                    <div className="absolute flex flex-col p-2 w-32 md:w-full mt-6 md:mt-8 items-start justify-center"></div>
-                    {walletConnect()}
-                  </div>
-                  {/* <button className="bg-blue-500 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded">MINT</button> */}
-                </main>
+        <Nav
+          callConnect={connect}
+          loading={loading}
+          active={active}
+          address={account}
+          switchNetwork={switchNetwork}
+          wrongNetwork={wrongNetwork}
+          display={true}
+        />
+
+        <div className="h-[90vh]">
+          <div className="grid grid-rows-1 md:grid-flow-col gap-2 mx-2 mt-20">
+            <div className="user-list w-full max-w-md mx-auto bg-white rounded-xl shadow-xl flex justify-center items-center flex-col px-8 py-10">
+              {" "}
+              <div className="flex flex-col items-center justify-cente w-full h-auto px-20 mb-10 rounded-xl">
+                <img
+                  className="rounded-full"
+                  src="https://fantom-bulls.web.app/fantom-bulls.gif"
+                  alt=""
+                />
+              </div>
+              <div className="flex flex-col items-center justify-center">
+                <div className="user-list w-full max-w-lg mx-auto bg-white rounded-xl flex flex-col">
+                  <h1 className="font-extrabold text-2xl mb-1 text-center">
+                    1 / 1000
+                  </h1>
+                  <h4 className="font-medium text-base text-center">
+                    1 Fantom Bull Costs 10 FTM
+                  </h4>
+                  <main className="flex items-center justify-center">
+                    <div className="flex flex-row border  rounded-lg border-gray-400 relative border-none mt-5">
+                      <button
+                        className="font-semibold bg-yellow-600 hover:bg-blue-800 text-white border-gray-400 h-10 w-10 flex rounded-full outline-none focus:outline-none cursor-pointer"
+                        onClick={decNum}>
+                        <span className="m-auto">-</span>
+                      </button>
+                      <input
+                        type="hidden"
+                        className="md:p-2 p-1 text-xs md:text-base border-gray-400 focus:outline-none text-center"
+                        readOnly
+                        name="custom-input-number"
+                      />
+                      <input
+                        className="bg-white w-10 h-10 text-xs md:text-base flex items-center justify-center cursor-default text-center outline-none"
+                        type="text"
+                        value={num}
+                        onChange={handleChange}
+                        disabled
+                      />
+                      <button
+                        className="font-semibold bg-yellow-600 hover:bg-blue-800 text-white border-gray-400 h-10 w-10 flex rounded-full outline-none focus:outline-none cursor-pointer"
+                        onClick={incNum}>
+                        <span className="m-auto">+</span>
+                      </button>
+                      <div className="absolute flex flex-col p-2 w-32 md:w-full mt-6 md:mt-8 items-start justify-center"></div>
+                      {walletConnect()}
+                    </div>
+                    {/* <button className="bg-blue-500 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded">MINT</button> */}
+                  </main>
+                </div>
               </div>
             </div>
-          </div>
 
-
-          <div>
-            {" "}
-
+            
           </div>
         </div>
-
         <Footer />
       </div>
     </div>
