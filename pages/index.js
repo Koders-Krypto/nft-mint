@@ -19,7 +19,9 @@ export default function Home() {
 
   return (
     <div className="pt-0 min-h-screen bg-slate-200">
-      <Head />
+      <Head>
+      <title>Fanton Bulls - Lauching Soon</title>
+      </Head>
       <div className="flex flex-col items-center min-h-screen bg-slate-200">
         <Nav
           display={false}
