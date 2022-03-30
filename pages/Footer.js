@@ -3,7 +3,8 @@ import "@fortawesome/fontawesome-free/css/all.css";
 export default function Footer() {
   return (
     <div>
-      <div className="flex items-center justify-center mt-6">
+       <h1 className="cursor-pointer text-yellow-600 font-bold text-lg md:text-2xl uppercase text-center mt-6">Partners</h1>
+      <div className="flex items-center justify-center mt-2">
         <a href="https://nftcalendar.io/event/fantom-bulls/" target="_blank">
           <img
             src="https://fantom-bulls.web.app/nft_calendar_logo.svg"
