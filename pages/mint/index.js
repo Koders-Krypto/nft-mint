@@ -197,7 +197,7 @@ export default function Mint() {
               <div className="flex flex-col items-center justify-cente w-full h-auto px-20 mb-10 rounded-xl">
                 <img
                   className="rounded-full"
-                  src="https://www.google.com/url?sa=j&url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Ffantom-bulls.appspot.com%2Fo%2Ffantom-bulls.gif%3Falt%3Dmedia%26token%3De8ef3cca-6e67-4a07-b8f6-7b28cdd79d7e&uct=1646209519&usg=xXIvi4aVQXtkJcqflNW7msLwUQs.&source=meet"
+                  src="https://firebasestorage.googleapis.com/v0/b/fantom-bulls.appspot.com/o/fantom-bulls.gif?alt=media&token=e8ef3cca-6e67-4a07-b8f6-7b28cdd79d7e"
                   alt=""
                 />
               </div>
