@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="flex items-center justify-center mt-2">
         <a href="https://nftcalendar.io/event/fantom-bulls/" target="_blank">
           <img
-            src="https://fantom-bulls.web.app/nft_calendar_logo.svg"
+            src="https://firebasestorage.googleapis.com/v0/b/fantom-bulls.appspot.com/o/nft_calendar_logo.svg?alt=media&token=bb0096f7-558b-4d6a-bb10-a09fb4362686"
             alt=""
             height={100}
             width={100}

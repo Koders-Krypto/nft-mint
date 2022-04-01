@@ -67,13 +67,13 @@ export default function Home() {
                 </div>
               </div>
               
-              <div>
+              {/* <div>
                 <a className="text-white" href="/mint">
                   <button className="mt-10 p-2 pr-10 pl-10 bg-trasparent text-3xl rounded-full uppercase font-bold border-2 border-white-600 text-white mb-20 md:mb-0">
                     Mint
                   </button>
                 </a>
-              </div>
+              </div> */}
              
             </div>
           </div>
