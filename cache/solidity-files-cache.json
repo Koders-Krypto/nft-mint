@@ -513,8 +513,8 @@
       ]
     },
     "/Users/vijayankith/projects/crypto/nft-mint/contracts/FantomBulls.sol": {
-      "lastModificationDate": 1648116227841,
-      "contentHash": "e236e806e1f7a4dba9604142605fca80",
+      "lastModificationDate": 1648820442731,
+      "contentHash": "ee396d3b385a042ac05edaa65d558fdf",
       "sourceName": "contracts/FantomBulls.sol",
       "solcConfig": {
         "version": "0.8.4",
