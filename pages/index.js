@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <div className="pt-0 min-h-screen bg-slate-200">
       <Head>
-      <title>Fanton Bulls - Lauching Soon</title>
+      <title>Fanton Bulls - Minting Now</title>
       </Head>
       <div className="flex flex-col items-center min-h-screen bg-slate-200">
         <Nav
@@ -36,7 +36,7 @@ export default function Home() {
               <p className="text-2xl mb-5 text-white">
                 The Fantom Bulls contains of <strong>1000</strong> genesis NFT's
               </p>
-              <p className="text-2xl mb-5 text-white">
+              {/* <p className="text-2xl mb-5 text-white">
                 <strong>Launch Date:</strong> 02 APRIL 2022
               </p>
               <p className="text-2xl mb-5 text-white">
@@ -65,16 +65,16 @@ export default function Home() {
                   <div className="text-white text-xl font-bold">{sec}</div>
                   <div className="text-white text-sm uppercase">SEC</div>
                 </div>
-              </div>
-              {/*
+              </div> */}
+              
               <div>
-                <a className="text-white" href="/Minter">
+                <a className="text-white" href="/mint">
                   <button className="mt-10 p-2 pr-10 pl-10 bg-trasparent text-3xl rounded-full uppercase font-bold border-2 border-white-600 text-white mb-20 md:mb-0">
-                    Mint
+                    Mint Now
                   </button>
                 </a>
               </div>
-              */}
+             
             </div>
           </div>
         </div>
