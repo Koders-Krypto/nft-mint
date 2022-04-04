@@ -41,7 +41,9 @@ function Bulls() {
         }
         tokenIds.push(tokenJson);
       }
-      console.log(tokenIds);
+      tokenIds.sort(function (a, b) {
+        return parseInt(a.tokenId) - parseInt(b.tokenId);
+      });
       setNfts(tokenIds);
     } catch (e) {
       setError(e);

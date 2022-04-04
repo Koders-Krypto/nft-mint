@@ -11,7 +11,7 @@ export default function Nav(props) {
         </div>
         <ul className="mr-5 md:mr-10 flex flex-row">
           <li>
-            <a href="/Bulls">
+            <a href="/bulls">
               <button
                 onClick={props.switchNetwork}
                 className="mr-0 md:mr-6 p-1 md:p-3 pl-5 md:pl-10 pr-5 md:pr-10 text-xs md:text-lg rounded-full transition-all uppercase font-bold text-yellow-600 text-center hover:bg-white hover:text-blue-900 focus:outline-none">
