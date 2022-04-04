@@ -321,7 +321,7 @@ export default function Home() {
                           Fantom Bulls Elite
                         </h4>
                         <p className="text-sm md:text-base leading-snug text-gray-50 text-opacity-100">
-                          Fantom Bulls Elite is a group of elite Fantom Bulls holders of Fantom Bulls genesis NFTs are qualifired for the airdrop of the Fantom Bulls Elite NFTs.
+                          Fantom Bulls Elite is a group of elite Fantom Bulls holders of Fantom Bulls genesis NFTs are qualified for the airdrop of the Fantom Bulls Elite NFTs.
                         </p>
                       </div>
                     </div>
