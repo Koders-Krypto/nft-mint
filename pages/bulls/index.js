@@ -49,7 +49,7 @@ function Bulls() {
       // setLoading(false);
     } catch (e) {
       setError(e);
-      setLoading(false);
+      // setLoading(false);
     }
   }
 
@@ -68,16 +68,14 @@ function Bulls() {
             params: [
               {
                 chainId: `0x${Number(chain_id).toString(16)}`,
-                rpcUrls: [
-                  "https://ropsten.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
-                ],
-                chainName: "Ropsten Test Network",
+                rpcUrls: ["https://rpc.ftm.tools/"],
+                chainName: "Fantom Opera",
                 nativeCurrency: {
-                  name: "ETHER",
-                  symbol: "ETH",
+                  name: "Fantom",
+                  symbol: "FTM",
                   decimals: 18,
                 },
-                blockExplorerUrls: ["https://ropsten.etherscan.io"],
+                blockExplorerUrls: ["https://ftmscan.com/"],
               },
             ],
           });

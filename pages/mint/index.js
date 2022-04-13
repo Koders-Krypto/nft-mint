@@ -175,7 +175,7 @@ export default function Mint() {
   }
 if(loading){
   return(
-    <div className="justify-center items-center">
+    <div className="flex justify-center items-center w-screen h-screen">
       <img src="https://firebasestorage.googleapis.com/v0/b/fantom-bulls.appspot.com/o/loading.gif?alt=media&token=9a07dc74-a280-4a81-ab34-616524563c2f" alt=""/>
       </div>
   )
