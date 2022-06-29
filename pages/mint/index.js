@@ -10,7 +10,7 @@ import Footer from "../Footer";
 export default function Mint() {
   var bullsAddress = "0xf2b4e66411905d08Cf708526fc76a399cb4Dc7F2";
   const chain_id = 250;
-  const mintPrice = "10";
+  const mintPrice = "1";
   const [active, setActive] = useState(false);
   const [account, setAccount] = useState("");
   const [loading, setLoading] = useState(true);
@@ -201,7 +201,7 @@ export default function Mint() {
                     {totalMinted} / 1000
                   </h1>
                   <h4 className="font-medium text-base text-center">
-                    1 Fantom Bull Costs 10 FTM
+                    1 Fantom Bull Costs 1 FTM
                   </h4>
                   <main className="flex items-center justify-center">
                     <div className="flex flex-row border  rounded-lg border-gray-400 relative border-none mt-5">
