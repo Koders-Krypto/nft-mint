@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <div className="pt-0 min-h-screen bg-slate-200">
       <Head>
-      <title>Fanton Bulls - Minting Now</title>
+      <title>Fantom Bulls - Minting Now</title>
       </Head>
       <div className="flex flex-col items-center min-h-screen bg-slate-200">
         <Nav
@@ -306,7 +306,7 @@ export default function Home() {
                       <div className="order-1 w-5/12 px-1 py-4 text-right">
                         <p className="mb-3 text-base text-yellow-300">Step 1</p>
                         <h4 className="mb-3 font-bold text-lg md:text-2xl">
-                          Fanton Bulls
+                          Fantom Bulls
                         </h4>
                         <p className="text-sm md:text-base leading-snug text-gray-50 text-opacity-100">
                           Collection of 1000 unique genesis NFT Fantom Bulls
@@ -346,7 +346,7 @@ export default function Home() {
                       <div className="order-1  w-5/12 px-1 py-4">
                         <p className="mb-3 text-base text-yellow-300">Step 4</p>
                         <h4 className="mb-3 font-bold  text-lg md:text-2xl text-left">
-                          Fanton Bulls Token Airdrop
+                          Fantom Bulls Token Airdrop
                         </h4>
                         <p className="text-sm md:text-base leading-snug text-gray-50 text-opacity-100">
                           Launch of 'BULL' token and aidrop to the NFT holders. 
